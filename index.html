@@ -243,7 +243,7 @@ p.lead{color:var(--muted);font-weight:700;text-align:center;margin:0 0 36px;font
   <div class="screen" id="screen-game">
     <div class="game-shell">
       <div class="meta-row">
-        <div class="q-progress" id="q-progress">Soru 1/40</div>
+        <div class="q-progress" id="q-progress">Soru 1/30</div>
         <div class="q-category">İngilizce</div>
         <div class="timer-wrap">
           <svg viewBox="0 0 64 64"><circle class="ring-bg" cx="32" cy="32" r="27"></circle><circle class="ring-fg" id="ring-fg" cx="32" cy="32" r="27"></circle></svg>
@@ -483,46 +483,36 @@ const getServerNow = () => Date.now() + serverTimeOffset;
 // ===== SORULAR (4 şıklı, 40 adet) — İNGİLİZCE =====
 // Şekilli soru eklemek için soruya "figure" alanı (SVG metni) ekleyebilirsin.
 const QUESTION_BANK = [
-  { question: "What is the plural of “child”?", options: ["Childs", "Children", "Childen", "Childes"], answer: "B" },
-  { question: "Which word is a color?", options: ["Green", "Table", "Happy", "Run"], answer: "A" },
-  { question: "I ___ a student.", options: ["is", "are", "be", "am"], answer: "D" },
-  { question: "What is the opposite of “hot”?", options: ["Cold", "Warm", "Big", "Fast"], answer: "A" },
-  { question: "Which day comes after Monday?", options: ["Sunday", "Tuesday", "Wednesday", "Friday"], answer: "B" },
-  { question: "She ___ to school every day.", options: ["goes", "go", "going", "gone"], answer: "A" },
-  { question: "How do you say “elma” in English?", options: ["Orange", "Banana", "Grape", "Apple"], answer: "D" },
-  { question: "Which one is a fruit?", options: ["Carrot", "Banana", "Potato", "Onion"], answer: "B" },
-  { question: "They ___ playing football now.", options: ["is", "are", "am", "be"], answer: "B" },
-  { question: "Which month comes after March?", options: ["April", "February", "June", "May"], answer: "A" },
-  { question: "What is the past form of “go”?", options: ["Went", "Goed", "Gone", "Going"], answer: "A" },
-  { question: "Which animal can fly?", options: ["Dog", "Bird", "Fish", "Cow"], answer: "B" },
-  { question: "How ___ are you? – I’m ten.", options: ["many", "much", "long", "old"], answer: "D" },
-  { question: "What is the opposite of “big”?", options: ["Small", "Large", "Tall", "Long"], answer: "A" },
-  { question: "Which one is a vegetable?", options: ["Apple", "Carrot", "Banana", "Lemon"], answer: "B" },
-  { question: "There ___ two books on the table.", options: ["is", "am", "are", "be"], answer: "C" },
-  { question: "Which number is “fifteen”?", options: ["50", "5", "15", "105"], answer: "C" },
-  { question: "I ___ breakfast at 7 o’clock.", options: ["has", "haves", "am have", "have"], answer: "D" },
-  { question: "Which sentence is correct?", options: ["He don’t like milk.", "He doesn’t like milk.", "He not like milk.", "He doesn’t likes milk."], answer: "B" },
-  { question: "“Teacher” kelimesinin Türkçe anlamı nedir?", options: ["Doktor", "Öğretmen", "Aşçı", "Pilot"], answer: "B" },
-  { question: "Which word is a part of the body?", options: ["Nose", "Chair", "Window", "Pencil"], answer: "A" },
-  { question: "She ___ tennis yesterday.", options: ["play", "plays", "played", "playing"], answer: "C" },
-  { question: "Which season is the coldest?", options: ["Summer", "Spring", "Winter", "Autumn"], answer: "C" },
-  { question: "This is my brother. ___ name is Ali.", options: ["Her", "Its", "Their", "His"], answer: "D" },
-  { question: "What is the opposite of “early”?", options: ["Fast", "Slow", "Soon", "Late"], answer: "D" },
-  { question: "I can ___ English.", options: ["speaks", "speaking", "spoke", "speak"], answer: "D" },
-  { question: "3:30 is ...", options: ["Half past three", "Quarter to three", "Three o’clock", "Quarter past three"], answer: "A" },
-  { question: "Where can we borrow books?", options: ["Hospital", "Library", "Bakery", "Cinema"], answer: "B" },
-  { question: "What is the plural of “box”?", options: ["Boxs", "Boxes", "Boxen", "Boxies"], answer: "B" },
-  { question: "She is ___ than her sister.", options: ["tall", "taller", "tallest", "more tall"], answer: "B" },
-  { question: "It is the ___ building in the city.", options: ["tall", "taller", "tallest", "most tall"], answer: "C" },
-  { question: "“Silgi” İngilizcede hangisidir?", options: ["Ruler", "Eraser", "Notebook", "Sharpener"], answer: "B" },
-  { question: "I ___ TV when the phone rang.", options: ["watch", "watched", "was watching", "watches"], answer: "C" },
-  { question: "Tomorrow I ___ visit my grandma.", options: ["did", "was", "am", "will"], answer: "D" },
-  { question: "Which word is a verb?", options: ["Quickly", "Beautiful", "Swim", "Blue"], answer: "C" },
-  { question: "Do you have ___ brothers?", options: ["any", "a", "an", "much"], answer: "A" },
-  { question: "“How much is this?” sorusu neyi sorar?", options: ["Age", "Price", "Time", "Weather"], answer: "B" },
-  { question: "What is the opposite of “always”?", options: ["Often", "Usually", "Never", "Sometimes"], answer: "C" },
-  { question: "She is good ___ math.", options: ["in", "on", "to", "at"], answer: "D" },
-  { question: "If it rains, we ___ stay at home.", options: ["would", "did", "are", "will"], answer: "D" }
+  { question: "Which word means a person who fights while wearing armour?", options: ["queen", "knight", "necklace", "bracelet"], answer: "B" },
+  { question: "Dad says, “The ___ is here.” The family gets into it to go to the station.", options: ["taxi", "platform", "passenger", "railway"], answer: "A" },
+  { question: "What does a queen wear on her head?", options: ["shield", "helmet", "crown", "belt"], answer: "C" },
+  { question: "Cars everywhere in front, behind, left and right create a lot of ___.", options: ["suitcase", "traffic", "bike", "platform"], answer: "B" },
+  { question: "Which item do knights hold in their hands?", options: ["sword", "necklace", "bracelet", "crown"], answer: "A" },
+  { question: "Which month comes after February?", options: ["January", "March", "April", "December"], answer: "B" },
+  { question: "Which sentence is TRUE according to the worksheet?", options: ["Queens wear crowns on their feet.", "Knights wear helmets on their legs.", "Knights ride horses.", "Queens wear bracelets on their heads."], answer: "C" },
+  { question: "A train arrives at a railway ___.", options: ["station", "motorway", "taxi", "suitcase"], answer: "A" },
+  { question: "Mina must ___ her room because her clothes are on the floor.", options: ["make", "tidy", "get", "mustn’t"], answer: "B" },
+  { question: "Which month comes before April?", options: ["May", "March", "June", "October"], answer: "B" },
+  { question: "Mina must buy her mum a birthday ___.", options: ["station", "card", "platform", "helmet"], answer: "B" },
+  { question: "Autumn starts in which month according to the worksheet?", options: ["November", "September", "January", "April"], answer: "B" },
+  { question: "Dad says, “You ___ run to the shops, Mina. It’s dangerous.”", options: ["must", "mustn’t", "tidy", "get"], answer: "B" },
+  { question: "Which sentence expresses a possibility?", options: ["I must tidy my room.", "I might go fishing with my dad.", "Knights hold swords.", "February comes after March."], answer: "B" },
+  { question: "Choose the correct word: “Did you email Mark?” “No, I’m going to phone ___.”", options: ["her", "them", "him", "us"], answer: "C" },
+  { question: "Choose the correct word: “They ___ stay in a hotel.”", options: ["might", "mustn’t", "tidy", "railway"], answer: "A" },
+  { question: "“Where’s your schoolbag?” “Oh, no! I left ___ at home!”", options: ["it", "me", "them", "him"], answer: "A" },
+  { question: "On holiday, you might see the Coliseum and eat pizza. Where are you?", options: ["France", "China", "Australia", "Italy"], answer: "D" },
+  { question: "This is a photo of my grandmother. I really love ___.", options: ["him", "her", "them", "us"], answer: "B" },
+  { question: "Which place is associated with the Eiffel Tower and the Champs-Élysées?", options: ["France", "China", "USA", "Dubai"], answer: "A" },
+  { question: "The first bicycle was invented in ___.", options: ["1817", "1840", "1927", "1991"], answer: "A" },
+  { question: "Which place is associated with the Great Wall?", options: ["Italy", "China", "Australia", "France"], answer: "B" },
+  { question: "The first stamp was invented in Great Britain in ___.", options: ["1817", "1840", "1927", "1991"], answer: "B" },
+  { question: "Which place is associated with the Burj Khalifa?", options: ["USA", "Italy", "Dubai", "China"], answer: "C" },
+  { question: "The first TV was invented in ___.", options: ["1817", "1840", "1927", "1991"], answer: "C" },
+  { question: "Jake asks, “Is there ___ to eat, Mum?”", options: ["anything", "nothing", "everyone", "anyone"], answer: "A" },
+  { question: "The Internet first opened for everyone to use in ___.", options: ["1817", "1840", "1927", "1991"], answer: "D" },
+  { question: "Mum says, “Don’t eat ___ before dinner!”", options: ["anything", "nothing", "everyone", "anyone"], answer: "A" },
+  { question: "Which invention is dated 1973 in the worksheet?", options: ["the first bicycle", "the first stamp", "the first mobile phone", "the first TV"], answer: "C" },
+  { question: "Where do passengers wait to get on a train?", options: ["motorway", "platform", "taxi", "traffic"], answer: "B" }
 ];
 
 const MIN_TEAMS = 2;
